@@ -4,7 +4,7 @@ module.exports.config = {
   name: "token",
   version: "1.0.0",
   role: 0,
-  hasPrefix: false,
+  hasPrefix: true,
   credits: "Eugene Aguilar",
   description: "Get token from Facebook API",
   usage: "/token username: <username> password: <password>",

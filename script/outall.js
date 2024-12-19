@@ -5,7 +5,7 @@ module.exports.config = {
     credits: "Juno",
     description: "Out of whole group except the owner",
     usages: "{p}outall",
-    hasPrefix: false,
+    hasPrefix: true,
     cooldown: 5
 };
 

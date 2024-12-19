@@ -6,7 +6,7 @@ module.exports.config = {
     hasPermission: 0,
     credits: "Juno",
     description: "GPT architecture",
-    usePrefix: false,
+    usePrefix: true,
     commandCategory: "GPT3",
     cooldowns: 5,
 };

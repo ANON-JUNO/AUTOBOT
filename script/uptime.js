@@ -7,7 +7,7 @@ module.exports.config = {
     role: 0,
     credits: "Juno",
     description: "View bot's uptime with performance stats",
-    hasPrefix: false, // Remove prefix
+    hasPrefix: true,
     cooldowns: 5,
     aliases: ["uptime"]
 };

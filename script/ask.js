@@ -5,7 +5,7 @@ module.exports.config = {
 		version: 1.0,
 		credits: "OtinXSandip",
 		description: "AI",
-		hasPrefix: false,
+		hasPrefix: true,
 		usages: "{pn} [prompt]",
 		aliases: ["gpt4"],
 		cooldown: 0,

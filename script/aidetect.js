@@ -6,7 +6,7 @@ module.exports.config = {
     hasPermission: 0,
     credits: "Juno",
     description: "AI detection",
-    usePrefix: false,
+    usePrefix: true,
     commandCategory: "AI DETECT",
     cooldowns: 5,
 };

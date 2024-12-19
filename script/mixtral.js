@@ -6,7 +6,7 @@ module.exports.config = {
     hasPermission: 0,
     credits: "Juno",
     description: "Chat with Mixtral using a conversational format.",
-    usePrefix: false,
+    usePrefix: true,
     commandCategory: "Mixtral",
     cooldowns: 5,
 };

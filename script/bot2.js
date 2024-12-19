@@ -5,7 +5,7 @@ module.exports.config = {
     role: 0,
     credits: "Juno",
     description: "Interact with Gemini",
-    hasPrefix: false,
+    hasPrefix: true,
     version: "1.0.0",
     aliases: ["gemini"],
     usage: "bot2 [reply to photo]"

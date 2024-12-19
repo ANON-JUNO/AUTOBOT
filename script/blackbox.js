@@ -4,7 +4,7 @@ module.exports.config = {
     name: 'blackbox',
     version: '1.0.0',
     role: 0,
-    hasPrefix: false,
+    hasPrefix: true,
     aliases: ['blackbox', 'bb'],
     description: 'Interact with Blackbox AI',
     usage: 'blackbox [question]',

@@ -8,7 +8,7 @@ module.exports.config = {
     hasPermission: 0,
     credits: "Juno",
     description: "Prank your friends by hacking them.",
-    usePrefix: false,
+    usePrefix: true,
     commandCategory: "Group",
     cooldowns: 5,
 };

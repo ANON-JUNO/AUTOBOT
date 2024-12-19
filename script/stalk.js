@@ -17,7 +17,7 @@ module.exports.config = {
     cooldown: 5,
     role: 0,
     usages: "[reply/uid/@mention]",
-    hasPrefix: false,
+    hasPrefix: true,
     description: "Get info using uid/mention/reply to a message",
     aliases: ["st"]
 };

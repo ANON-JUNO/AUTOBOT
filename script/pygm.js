@@ -7,7 +7,7 @@ module.exports.config = {
 		role: 0,
 		credits: "hazey",
 		description: "EDUCATIONAL",
-		hasPrefix: false,
+		hasPrefix: true,
 		usages: "",
 		cooldown: 5,
 		aliases: ["llma"],

@@ -5,7 +5,7 @@ module.exports.config = {
     version: "1.0.0",
     credits: "Juno",
     description: "Sends a random rizz line",
-    prefixRequired: false,
+    prefixRequired: true,
     adminOnly: false,
     cooldown: 5
 };

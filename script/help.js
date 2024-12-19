@@ -6,7 +6,7 @@ module.exports.config = {
     hasPermission: 0,
     credits: "Juno",
     description: "Displays a list of all commands and events",
-    usePrefix: false,
+    usePrefix: true,
     commandCategory: "Information",
     cooldowns: 5,
 };

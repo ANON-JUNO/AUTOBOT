@@ -8,7 +8,7 @@ module.exports.config = {
 	role: 0,
 	aliases: ['npm','Npm','NPM'],
 	description: 'Get info on Npm package',
-	hasPrefix: false,
+	hasPrefix: true,
 	usages: '{p}npm your text',
 };
 

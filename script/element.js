@@ -4,7 +4,7 @@ module.exports.config = {
     hasPermission: 0,
     credits: "Juno",
     description: "Get information about an element",
-    usePrefix: false,
+    usePrefix: true,
     commandCategory: "study",
     cooldowns: 5,
 };

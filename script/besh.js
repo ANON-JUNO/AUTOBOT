@@ -6,7 +6,7 @@ module.exports.config = {
 	description: "bes-ai",
 	usages: "[ask]",
 	cooldown: 5,
-	hasPrefix: false,
+	hasPrefix: true,
 };
 
 module.exports.run = async function ({ api, event, args }) {

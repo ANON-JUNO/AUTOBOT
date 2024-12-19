@@ -3,7 +3,7 @@ module.exports.config = {
     version: "1.0.0",
     role: 0,
     credits: "Ainz",
-    hasPrefix: false, 
+    hasPrefix: true, 
     description: "Call of duty highlights video",
     usage: "{pref}(name_of_cmd)",
     cooldowns: 5
@@ -14,7 +14,7 @@ module.exports.run = async function ({ api, event }) {
     const request = require('request');
     const fs = require("fs");
 
-    api.sendMessage(`⏱Sending please wait...`, event.threadID, event.messageID);
+    api.sendMessage(`Sending please wait...`, event.threadID, event.messageID);
 
     axios.post('https://share-apis.onrender.com/codm').then(res => {
         let ext = res.data.url.substring(res.data.url.lastIndexOf(".") + 1);

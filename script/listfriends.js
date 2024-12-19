@@ -4,7 +4,7 @@ module.exports.config = {
 		name: "listfriends",
 		version: "1.0.0",
 		role: 2,
-		hasPrefix: false,
+		hasPrefix: true,
 		credits: "Juno",
 		description: "View friends information/Delete friends by replying",
 		usages: "",

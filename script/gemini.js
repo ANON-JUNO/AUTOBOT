@@ -3,7 +3,7 @@ module.exports.config = {
     role: 0,
     credits: "churchill",
     description: "Talk to Gemini (conversational)",
-    hasPrefix: false,
+    hasPrefix: true,
     version: "5.6.7",
     aliases: ["bard"],
     usage: "gemini [prompt]",

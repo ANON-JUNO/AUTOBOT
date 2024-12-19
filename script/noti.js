@@ -4,7 +4,7 @@ module.exports.config = {
     role: 1,
     credits: "Juno",
     description: "Sends a message to all groups or specific groups, only available for admin.",
-    usePrefix: false, // No prefix required
+    usePrefix: true,
     commandCategory: "noti",
     usages: "[ID(s) | Text]",
     cooldowns: 3

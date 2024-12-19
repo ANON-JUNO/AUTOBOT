@@ -6,7 +6,7 @@ module.exports.config = {
     hasPermission: 0,
     credits: "Juno",
     description: "Sends a random riddle.",
-    usePrefix: false,
+    usePrefix: true,
     commandCategory: "Fun",
     cooldowns: 5,
 };

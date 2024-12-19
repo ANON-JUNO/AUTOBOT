@@ -4,7 +4,7 @@ module.exports.config = {
   name: 'adobo',
   version: '1.0.0',
   role: 0,
-  hasPrefix: false,
+  hasPrefix: true,
   aliases: ['adobo'],
   description: "Adobo AI",
   usage: "adobo [query]",

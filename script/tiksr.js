@@ -4,7 +4,7 @@ module.exports.config = {
 		name: "tiksr",
 		version: "1.0.0",
 		credits: "Samir Œ , Faith Xe",
-		hasPrefix: false,
+		hasPrefix: true,
 		role: 0,
 		description: "Send a random TikTok video",
 		aliases: [],

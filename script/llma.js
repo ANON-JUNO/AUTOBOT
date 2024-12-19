@@ -7,7 +7,7 @@ module.exports.config = {
 	role: 0,
 	aliases: ['llma'],
 	cooldown: 0,
-	hasPrefix: false,
+	hasPrefix: true,
 	usage: "",
 };
 

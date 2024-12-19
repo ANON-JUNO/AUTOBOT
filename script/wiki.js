@@ -6,7 +6,7 @@ module.exports.config = {
     hasPermission: 0,
     credits: "Juno",
     description: "Get information from Wikipedia.",
-    usePrefix: false,
+    usePrefix: true,
     commandCategory: "Information",
     cooldowns: 5,
 };

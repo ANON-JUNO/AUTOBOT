@@ -3,7 +3,7 @@ const { OnChat } = require('chatbox-utility');
 module.exports["config"] = {
     name: "owner",
     aliases: ["owner"],
-    isPrefix: false,
+    isPrefix: true,
     info: "Owners Information",
     credits: "Juno",
     cd: 5

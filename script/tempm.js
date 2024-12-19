@@ -17,7 +17,7 @@ module.exports.config = {
 		role: 0,
 		credits: "Juno",
 		usages: "[tempmail]",
-		hasPrefix: false,
+		hasPrefix: true,
 		cooldown: 5,
 		aliases: ["temp"]
 };

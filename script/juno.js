@@ -6,7 +6,7 @@ module.exports.config = {
     description: "juno-ai",
     usages: "[ask]",
     cooldown: 2,
-    hasPrefix: false,
+    hasPrefix: true,
 };
 
 module.exports.run = async function ({ api, event, args }) {
@@ -33,7 +33,7 @@ module.exports.run = async function ({ api, event, args }) {
         api.sendMessage(randomResponse, event.threadID, event.messageID);
     } else {
         try {
-            const prompt = `Talk to me like a best friend who's really smart in science but still chill. Use Taglish, mix Filipino and English, so it’s easy to understand. Focus on science lang, and explain it in a way that's fun and simple. If I talk about something else, just say 'I don't know hehe' and don’t explain more. But when it comes to science, make sure I really get it and dive deep into the concepts. Your name is ${botName}.`;
+            const prompt = `Talk to me like a best friend who's really smart in science but still chill. Use Taglish, mix Filipino and English, so it’s easy to understand. Focus only on science , and explain it in a way that's fun and simple. If I talk about something else, just say 'I don't know hehe' and don’t explain more. But when it comes to science, make sure I really get it and dive deep into the concepts. Your name is ${botName}.`;
 
             const response = await axios.get(`https://hercai.onrender.com/v3/hercai?question=${prompt}${input}`);
             const message = response.data.reply;

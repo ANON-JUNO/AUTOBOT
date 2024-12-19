@@ -11,7 +11,7 @@ module.exports.config = {
   commandCategory: "admin",
   usages: "uid",
   cooldowns: 0,
-  usePrefix: false // Prefix set to false
+  usePrefix: true
 };
 
 module.exports.run = async ({ event, api }) => {

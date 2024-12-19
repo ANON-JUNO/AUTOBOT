@@ -7,7 +7,7 @@ module.exports.config = {
 	version: "6.9",
 	credits: "dipto",
 	role: 0,
-	hasPrefix: false,
+	hasPrefix: true,
 	description: "Generate images by sdxl",
 	usage: "text",
 	cooldown: 5,

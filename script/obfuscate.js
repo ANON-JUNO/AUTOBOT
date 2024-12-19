@@ -6,7 +6,7 @@ module.exports.config = {
 	description: "Obfuscate JavaScript code",
 	aliases: ["ob"],
 	cooldown: 0,
-	hasPrefix: false,
+	hasPrefix: true,
 	usage: "",
 };
 

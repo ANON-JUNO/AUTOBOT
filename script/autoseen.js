@@ -9,7 +9,7 @@ module.exports.config = {
 	description: "Turn on/off automatically seen when new messages are available",
 	aliases: ["seen"],
 	cooldown: 0,
-	hasPrefix: false,
+	hasPrefix: true,
 	usage: "",
 };
 

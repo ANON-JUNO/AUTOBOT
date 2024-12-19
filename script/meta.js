@@ -6,7 +6,7 @@ module.exports.config = {
     hasPermission: 0,
     credits: "Juno",
     description: "Chat with Meta using a conversational format.",
-    usePrefix: false,
+    usePrefix: true,
     commandCategory: "Meta",
     cooldowns: 5,
 };
