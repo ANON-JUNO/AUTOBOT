@@ -1,32 +1,31 @@
 module.exports.config = {
     name: "confess",
-    version: "1.0.7",
-    role: 0,
-    credits: "Juno",
-    description: "Confess a message to a user.",
+    version: "1.0.1",
     hasPermission: 0,
-    commandCategory: "Confess",
-    usages: "confess [userID] [message]",
-    cooldowns: 5
+    credits: "Deku",
+    description: "Confess to someone (⁠◍⁠•⁠ᴗ⁠•⁠◍⁠)",
+    commandCategory: "...",
+    usages: "confess [your message] [Facebook profile link or UID]",
+    cooldowns: 5,
 };
 
 module.exports.run = async function({ api, event, args }) {
-    const { threadID, messageID } = event;
-    const idbox = args[0];
-    const reason = args.slice(1).join(" ");
+    function reply(g) {
+        api.sendMessage(g, event.threadID, event.messageID);
+    }
 
-    if (!idbox || !reason) {
-        return api.sendMessage("Syntax error, use: confess [userID] [message]", threadID, messageID);
+    const content = args.join(" ").split("|").map(item => item.trim());
+    let text1 = content[0];
+    let text2 = content[1];
+
+    if (!args[0] || !text1 || !text2) {
+        return reply("Wrong format\nUse " + this.config.name + " [your message] | [Facebook profile link or UID]");
     }
 
     try {
-        api.sendMessage(
-            `Someone bot user has confessed on you, here is the confess message: \n\n${reason}`,
-            idbox,
-            () => api.sendMessage(`Sent message: ${reason}`, threadID, messageID)
-        );
-    } catch (error) {
-        console.error("Error sending confess message:", error);
-        api.sendMessage("An error occurred while sending the confess message. Please try again.", threadID, messageID);
+        const res = await api.getUID(text2);
+        api.sendMessage("Someone bot user has confessed to you, here is the confession please read it.\n\nMessage: " + text1, res, () => reply("Confession has been sent successfully!"));
+    } catch (err) {
+        reply("I'm sorry but your confession has failed to send, I think it's time to chat with that person and confess your feelings (⁠◍⁠•⁠ᴗ⁠•⁠◍⁠)");
     }
 };
