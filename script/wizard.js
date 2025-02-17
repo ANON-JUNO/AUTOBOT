@@ -31,10 +31,11 @@ module.exports.run = async function ({ api, event, args }) {
 
         await new Promise((resolve) => setTimeout(resolve, 1000));
 
-        const apiUrl = `https://api.joshweb.click/api/wizardlm?q=${encodeURIComponent(prompt)}`;
+        const apiUrl = `https://markdevs-last-api-p2y6.onrender.com/wizard?ask=${encodeURIComponent(prompt)}`;
 
         let attempts = 0;
         let response;
+
         while (attempts < 3) {
             try {
                 response = await axios.get(apiUrl);
@@ -59,7 +60,7 @@ module.exports.run = async function ({ api, event, args }) {
             const generatedText = response.data.result;
 
             api.sendMessage(
-                `Answer Wizard:\n${generatedText}.\n\nType 'clear' to delete the conversation history.`,
+                `Answer Wizard:\n${generatedText}\n\n`,
                 threadID,
                 messageID
             );
