@@ -1,80 +1,50 @@
-const axios = require("axios");
+const axios = require('axios');
+const fs = require('fs-extra');
 
 module.exports.config = {
-    name: "wiki",
-    version: "1.0.0",
-    hasPermission: 0,
-    credits: "Juno",
-    description: "Get information from Wikipedia.",
-    usePrefix: true,
-    commandCategory: "Information",
-    cooldowns: 5,
+  name: "wiki",
+  version: "1.0.0",
+  role: 1,
+  credits: "Clarence",
+  description: "Fetch a summary from Wikipedia for a given topic",
+  hasPrefix: true,
+  cooldown: 5,
 };
 
 module.exports.run = async function ({ api, event, args }) {
-    try {
-        const { messageID, messageReply, threadID } = event;
-        let query = args.join(" ");
+  const { threadID, messageID, senderID } = event;
+  const query = args.join(' ').trim();
 
-        if (messageReply && messageReply.body) {
-            const repliedMessage = messageReply.body;
-            query = `${repliedMessage} ${query}`;
-        }
+  if (!query) {
+    return api.sendMessage('Please provide a topic to search on Wikipedia.', threadID, messageID);
+  }
 
-        if (!query.trim()) {
-            return api.sendMessage(
-                `Please provide a search term to get a Wikipedia response.`,
-                threadID,
-                messageID
-            );
-        }
+  try {
+    const apiUrl = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(query)}`;
+    const response = await axios.get(apiUrl);
+    const { title, extract, description, thumbnail, content_urls } = response.data;
 
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+    if (title && extract) {
+      let message = `${title}\n\n`;
 
-        const apiUrl = `https://jonellprojectccapisexplorer.onrender.com/api/wiki?q=${encodeURIComponent(query)}`;
+      if (description) {
+        message += `Description: ${description}\n\n`;
+      }
 
-        let attempts = 0;
-        let response;
+      message += `Summary:\n${extract}\n\n`;
 
-        while (attempts < 3) {
-            try {
-                response = await axios.get(apiUrl);
-                if (response.data && response.data.message) {
-                    break;
-                }
-            } catch (error) {
-                attempts++;
-                if (attempts >= 3) {
-                    return api.sendMessage(
-                        `Sorry, something went wrong while fetching the information. Please try again later.`,
-                        threadID,
-                        messageID
-                    );
-                }
-                await new Promise((resolve) => setTimeout(resolve, 2000));
-            }
-        }
+      if (thumbnail && thumbnail.source) {
+        message += `Image: ${thumbnail.source}\n\n`;
+      }
 
-        if (response && response.data && response.data.message) {
-            const generatedText = response.data.message;
-            const link = response.data.link || "No link available";
-            api.sendMessage(
-                `Answer Wikipedia:\n${generatedText}\nLink: ${link}`,
-                threadID,
-                messageID
-            );
-        } else {
-            api.sendMessage(
-                `The response from Wikipedia is empty. Please try again later.`,
-                threadID,
-                messageID
-            );
-        }
-    } catch (error) {
-        api.sendMessage(
-            `An error occurred while processing your request. Please try again later.`,
-            event.threadID,
-            messageID
-        );
+      message += `Read more: [Wikipedia Page](${content_urls.desktop.page})`;
+
+      await api.sendMessage(message, threadID, messageID);
+    } else {
+      await api.sendMessage('No information found for the specified topic.', threadID, messageID);
     }
+  } catch (error) {
+    console.error('Error fetching Wikipedia summary:', error);
+    await api.sendMessage('Sorry, there was an error processing your request.', threadID, messageID);
+  }
 };
