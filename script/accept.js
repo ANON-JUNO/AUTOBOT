@@ -6,7 +6,7 @@ module.exports.config = {
   name: "accept",
   version: "1.0.0",
   role: 1,
-  credits: "Juno", // Credits updated to Juno
+  credits: "Juno",
   description: "Make friends via Facebook ID",
   commandCategory: "admin",
   usages: "uid",
